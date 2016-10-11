@@ -1,0 +1,28 @@
+<h1>Редактировать маршрут</h1>
+
+<%= form_for(@train_route) do |f| %>
+    <% if @train_route.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@train_route.errors.count, "error") %> prohibited this railway_station from being saved:</h2>
+
+          <ul>
+            <% @train_route.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Изменить' %>
+    </div>
+<% end %>
+
+
+<%= link_to 'Показать', @train_routes %> |
+<%= link_to 'Назад', train_route_path %>
