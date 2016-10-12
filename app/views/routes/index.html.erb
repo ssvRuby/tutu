@@ -11,11 +11,11 @@
   </thead>
 
   <tbody>
-  <% @train_routes.each do |train_route| %>
+  <% @routes.each do |train_route| %>
       <tr>
         <td><%= train_route.title %></td>
         <td><%= link_to 'Показать', train_route %></td>
-        <td><%= link_to 'Редактировать', edit_train_route_path(train_route) %></td>
+        <td><%= link_to 'Редактировать', edit_route_path(train_route) %></td>
         <td><%= link_to 'Удалить', train_route, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
   <% end %>
@@ -24,6 +24,6 @@
 
 <br>
 
-<%= link_to 'Новый маршрут', new_train_route_path %>
+<%= link_to 'Новый маршрут', new_route_path %>
 <%= link_to 'Домой', welcome_index_path %>
 
