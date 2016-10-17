@@ -1,8 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Идентификатор:</strong>
+  <strong>Наименование маршрута:</strong>
   <%= @route.title %>
+</p>
+
+<p>
+  <strong>Список поездов маршрута:</strong>
+  <% if @route.trains.empty? %>
+      Поездов на маршруте нет
+  <% else %>
+    <ul>
+      <% @route.trains.each do |t| %>
+          <li> <%= t.number %> </li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <strong>Список станций маршрута:</strong>
+  <% if @route.railway_stations.empty? %>
+      Станций в маршруте нет
+  <% else %>
+    <ul>
+      <% @route.railway_stations.each do |s| %>
+          <li> <%= s.title %> </li>
+      <% end %>
+    </ul>
+  <% end %>
 </p>
 
 <%= link_to 'Редактировать', edit_route_path(@route) %> |

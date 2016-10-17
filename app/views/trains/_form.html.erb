@@ -1,22 +1,23 @@
 <%= form_for(train) do |f| %>
-  <% if train.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(train.errors.count, "error") %> prohibited this train from being saved:</h2>
 
-      <ul>
-      <% train.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <%= render 'common/errors', resource: train %>
+
+    <div class="field">
+      <%= f.label :Номер %>
+      <%= f.text_field :number %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :number %>
-    <%= f.text_field :number %>
-  </div>
+    <div class="field">
+      <%= f.label :current_station, "Текущая станция" %>
+      <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :route, "Маршрут" %>
+      <%= f.collection_select :route_id, Route.all, :id, :title %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
