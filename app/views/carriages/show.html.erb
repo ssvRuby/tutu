@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Вагон номер:</strong>
+  <%= @carriage.number %>
+  <strong>Тип:</strong>
+  <% if @carriage.carriage_type.present? %>
+      <%= @carriage.carriage_type %>
+  <% else %>
+      Тип не указан
+  <% end %>
+
+  <ul>
+    <li>
+      Верхних мест:
+      <% top_places = @carriage.top_places_qty.nil? ? 0 : @carriage.top_places_qty %>
+      <%= top_places %>
+    </li>
+    <li>
+      Нижних мест:
+      <% bottom_places = @carriage.bottom_places_qty.nil? ? 0 : @carriage.bottom_places_qty %>
+      <%= bottom_places %>
+    </li>
+    <li>
+      Всего мест:
+      <%= top_places + bottom_places %>
+    </li>
+  </ul>
+
+
+</p>
+
+<p>
+  <strong>Поезд №:</strong>
+  <% if @carriage.train.present? %>
+      <%= @carriage.train.number %>
+  <% else %>
+      Поезд не назначен
+  <% end %>
+</p>
+
+
+<%= link_to 'Редактировать', edit_carriage_path(@carriage) %> |
+<%= link_to 'Назад', carriages_path %>

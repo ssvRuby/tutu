@@ -6,6 +6,34 @@
 </p>
 
 <p>
+  <strong>Количество вагонов:</strong>
+  <%= @train.carriages.length %>
+</p>
+
+<p>
+  <strong>Количество вагонов по типам:</strong>
+  <ul>
+    <% @train.carr_by_type.each do |t| %>
+        <li>
+          <%= "#{t[0]} -- #{t[1]} " %>
+
+    <p>
+
+      <% @train.places_by_type(t[0]).each do |p| %>
+          <%= "#{p[0]}: #{p[1]}" %>
+      <% end %>
+    </p>
+
+
+    </li>
+
+  <% end %>
+
+</ul>
+
+</p>
+
+<p>
   <strong>Маршрут:</strong>
   <% if @train.route.present? %>
       <%= @train.route.title %>
