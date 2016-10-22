@@ -1,0 +1,3 @@
+class CarriageSv < Carriage
+
+end

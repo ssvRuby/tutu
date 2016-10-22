@@ -28,7 +28,7 @@ class CarriagesController < ApplicationController
 
   def update
     if @carriage.update(carriage_params)
-      redirect_to @carriage
+      redirect_to @carriage.becomes(Carriage)
     else
       render :new
     end

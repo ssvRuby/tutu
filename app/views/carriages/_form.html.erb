@@ -1,4 +1,4 @@
-<%= form_for(carriage) do |f| %>
+<%= form_for(carriage.becomes(Carriage)) do |f| %>
     <%= render 'common/errors', resource: carriage %>
 
     <div class="field">
@@ -23,6 +23,18 @@
     <div class="field">
       <%= f.label 'Количество нижних мест' %>
       <%= f.text_field :bottom_places_qty %>
+    </div>
+    <div class="field">
+      <%= f.label 'Количество верхних боковых мест' %>
+      <%= f.text_field :side_top_places_qty %>
+    </div>
+    <div class="field">
+      <%= f.label 'Количество нижних боковых мест' %>
+      <%= f.text_field :side_bottom_places_qty %>
+    </div>
+    <div class="field">
+      <%= f.label 'Количество сидячих мест' %>
+      <%= f.text_field :seats_qty %>
     </div>
 
     <div class="actions">

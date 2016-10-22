@@ -3,7 +3,7 @@ class Carriage < ApplicationRecord
 
   validates :number, presence:  true
 
-  CARRIAGE_TYPES = ['Coupe', 'Economy']
+  CARRIAGE_TYPES = ['Coupe', 'Economy', 'SV', 'Seating']
 
   def self.carriage_types
     CARRIAGE_TYPES

@@ -24,7 +24,7 @@
       Станций в маршруте нет
   <% else %>
     <ul>
-      <% @route.railway_stations.each do |s| %>
+      <% @route.railway_stations.ordered.each do |s| %>
           <li> <%= s.title %> </li>
       <% end %>
     </ul>
