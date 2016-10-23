@@ -15,13 +15,16 @@ class CarriagesController < ApplicationController
   end
 
   def create
-    @carriage = Carriage.new(carriage_params)
+    @carriage = determine_carriage_class
+
     if @carriage.save
-      redirect_to @carriage
+      redirect_to @carriage.becomes(Carriage)
     else
       render :new
     end
   end
+
+
 
   def edit
   end
@@ -41,11 +44,18 @@ class CarriagesController < ApplicationController
 
   private
 
+  def determine_carriage_class
+    carriage_class_name = 'Carriage' + carriage_params[:carriage_type]
+    carriage_class_name.constantize.new(carriage_params)
+  end
+
   def set_carriage
     @carriage = Carriage.find(params[:id])
   end
 
   def carriage_params
-    params.require(:carriage).permit(:number, :train_id, :top_places_qty, :bottom_places_qty, :carriage_type)
+    puts "<=============== carriage_params ===========================================>"
+    params.require(:carriage).permit(:number, :train_id, :top_places_qty, :bottom_places_qty, :side_top_places_qty,
+                                     :side_bottom_places_qty, :seats_qty, :carriage_type)
   end
 end

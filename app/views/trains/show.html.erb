@@ -9,28 +9,20 @@
   <strong>Количество вагонов:</strong>
   <%= @train.carriages.length %>
 </p>
-
 <p>
-  <strong>Количество вагонов по типам:</strong>
+<strong>Количество вагонов по типам:</strong>
   <ul>
     <% @train.carr_by_type.each do |t| %>
-        <li>
-          <%= "#{t[0]} -- #{t[1]} " %>
-
-    <p>
+    <li>
+      <%= "#{t[0]} -- #{t[1]} " %>
 
       <% @train.places_by_type(t[0]).each do |p| %>
-          <%= "#{p[0]}: #{p[1]}" %>
+        <%= "#{p[0]}: #{p[1]}" %>
       <% end %>
-    </p>
-
 
     </li>
-
-  <% end %>
-
-</ul>
-
+    <% end %>
+  </ul>
 </p>
 
 <p>

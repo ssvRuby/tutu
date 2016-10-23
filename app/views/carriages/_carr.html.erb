@@ -1,5 +1,4 @@
 <% carriages.each do |c| %>
-<%= c %>
     <tr>
       <td><%= c.number %></td>
       <td><%= c.type %></td>
@@ -8,5 +7,4 @@
       <td><%= link_to 'Редактировать', edit_carriage_path(c) %></td>
       <td><%= link_to 'Удалить', carriage_path(c) , method: :delete, data: { confirm: 'Вы уверены?' }%></td>
     </tr>
-
 <% end %>
