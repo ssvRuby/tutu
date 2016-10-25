@@ -36,7 +36,8 @@ class Train < ApplicationRecord
   end
 
   def carriage_list
-    Carriage.where(train_id: self.id).order(number: self.sort_order ? :asc : :desc)
+    # Carriage.where(train_id: self.id).order(number: self.sort_order ? :asc : :desc)
+    carriages.order(number: self.sort_order ? :asc : :desc)
   end
 
   def show_count_place_by_type(carriage_type, place_type)

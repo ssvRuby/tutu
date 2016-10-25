@@ -16,7 +16,9 @@ class Carriage < ApplicationRecord
 
   def set_carriage_number
     carriage_number = 0
-    carriage_list = Carriage.select('number').where(train_id: self.train.id).order(number: :asc)
+
+    # carriage_list = Carriage.select('number').where(train_id: self.train.id).order(number: :asc)
+    carriage_list = train.carriages.sort { |x, y| x.number <=> y.number}
     carriage_number = 1 if carriage_list.length == 0
 
     if carriage_number == 0
