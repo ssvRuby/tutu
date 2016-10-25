@@ -17,6 +17,11 @@
       <%= f.collection_select :route_id, Route.all, :id, :title %>
     </div>
 
+    <div class="field">
+      <%= f.label :sort_order, 'Порядок вагонов << С головы >>' %>
+      <%= f.check_box :sort_order %>
+    </div>
+
     <div class="actions">
       <%= f.submit %>
     </div>

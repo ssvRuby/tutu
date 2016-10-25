@@ -11,26 +11,28 @@
 </p>
 
 <p>
-  <strong>Количество вагонов по типам:</strong>
+  <strong>Список вагонов:</strong>
+<ul>
+  <% @train.carriage_list.each do |c| %>
+      <li>
+        <%= link_to c.number, carriage_path(c) %>
+      </li>
+  <% end %>
+</ul>
+</p>
+
+<p>
+<strong>Количество вагонов по типам:</strong>
   <ul>
     <% @train.carr_by_type.each do |t| %>
-        <li>
-          <%= "#{t[0]} -- #{t[1]} " %>
-
-    <p>
-
+    <li>
+      <%= "#{t[0]} -- #{t[1]} " %>
       <% @train.places_by_type(t[0]).each do |p| %>
-          <%= "#{p[0]}: #{p[1]}" %>
+        <%= "#{p[0]}: #{p[1]}" %>
       <% end %>
-    </p>
-
-
     </li>
-
-  <% end %>
-
-</ul>
-
+    <% end %>
+  </ul>
 </p>
 
 <p>
@@ -50,6 +52,8 @@
     Не указано
   <% end %>
 </p>
+
+
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>
