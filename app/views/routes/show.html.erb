@@ -31,5 +31,35 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Список станций маршрута (с номерами):</strong>
+  <% if @route.railway_stations.empty? %>
+      Станций в маршруте нет
+  <% else %>
+    <table>
+      <thead>
+      <tr>
+        <td width="100">Название</td>
+        <td>Позиция</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @route.railway_stations.ordered.each do |s| %>
+          <tr>
+            <td width="100"> <%= s.title %> </td>
+            <td>
+              <%= form_tag update_position_railway_station_path(s), method: :patch do %>
+                  <%= number_field_tag :station_number, s.position_in(@route) %>
+                  <%= hidden_field_tag :route_id, @route.id%>
+                  <%= submit_tag "Изменить" %>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+</p>
+
 <%= link_to 'Редактировать', edit_route_path(@route) %> |
 <%= link_to 'Назад', routes_path %>
