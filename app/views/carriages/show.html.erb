@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Поезд №:</strong>
+  <% if @carriage.train.present? %>
+      <%= @carriage.train.number %>
+  <% else %>
+      Поезд не назначен
+  <% end %>
+</p>
+
+<p>
   <strong>Вагон номер:</strong>
   <%= @carriage.number %>
   <strong>Тип:</strong>
@@ -10,50 +19,39 @@
       Тип не указан
   <% end %>
 
-  <ul>
-    <li>
-      Верхних мест:
+<ul>
+  <li>
+    Верхних мест:
     <% top_places = @carriage.top_places_qty.nil? ? 0 : @carriage.top_places_qty %>
     <%= top_places %>
   </li>
-    <li>
-      Нижних мест:
-      <% bottom_places = @carriage.bottom_places_qty.nil? ? 0 : @carriage.bottom_places_qty %>
-      <%= bottom_places %>
-    </li>
-    <li>
-      Верхних боковых мест:
-      <% side_top_places = @carriage.side_top_places_qty.nil? ? 0 : @carriage.side_top_places_qty %>
-      <%= side_top_places %>
-    </li>
-    <li>
-      Нижних боковых мест:
-      <% side_bottom_places = @carriage.side_bottom_places_qty.nil? ? 0 : @carriage.side_bottom_places_qty %>
-      <%= side_bottom_places %>
-    </li>
-    <li>
-      Сидячих мест :
-      <% seats_qty = @carriage.seats_qty.nil? ? 0 : @carriage.seats_qty %>
-      <%= seats_qty %>
-    </li>
-    <li>
-      Всего мест:
-      <%= top_places + bottom_places + side_top_places + side_bottom_places + seats_qty %>
-    </li>
-  </ul>
-
+  <li>
+    Нижних мест:
+    <% bottom_places = @carriage.bottom_places_qty.nil? ? 0 : @carriage.bottom_places_qty %>
+    <%= bottom_places %>
+  </li>
+  <li>
+    Верхних боковых мест:
+    <% side_top_places = @carriage.side_top_places_qty.nil? ? 0 : @carriage.side_top_places_qty %>
+    <%= side_top_places %>
+  </li>
+  <li>
+    Нижних боковых мест:
+    <% side_bottom_places = @carriage.side_bottom_places_qty.nil? ? 0 : @carriage.side_bottom_places_qty %>
+    <%= side_bottom_places %>
+  </li>
+  <li>
+    Сидячих мест :
+    <% seats_qty = @carriage.seats_qty.nil? ? 0 : @carriage.seats_qty %>
+    <%= seats_qty %>
+  </li>
+  <li>
+    Всего мест:
+    <%= top_places + bottom_places + side_top_places + side_bottom_places + seats_qty %>
+  </li>
+</ul>
 
 </p>
-
-<p>
-  <strong>Поезд №:</strong>
-  <% if @carriage.train.present? %>
-      <%= @carriage.train.number %>
-  <% else %>
-      Поезд не назначен
-  <% end %>
-</p>
-
 
 <%= link_to 'Редактировать', edit_carriage_path(@carriage) %> |
-<%= link_to 'Назад', carriages_path %>
+<%= link_to 'Назад', @carriage.train %>

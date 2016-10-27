@@ -23,19 +23,6 @@
   <% if @route.railway_stations.empty? %>
       Станций в маршруте нет
   <% else %>
-    <ul>
-      <% @route.railway_stations.ordered.each do |s| %>
-          <li> <%= s.title %> </li>
-      <% end %>
-    </ul>
-  <% end %>
-</p>
-
-<p>
-  <strong>Список станций маршрута (с номерами):</strong>
-  <% if @route.railway_stations.empty? %>
-      Станций в маршруте нет
-  <% else %>
     <table>
       <thead>
       <tr>
@@ -46,7 +33,7 @@
       <tbody>
       <% @route.railway_stations.ordered.each do |s| %>
           <tr>
-            <td width="100"> <%= s.title %> </td>
+            <td> <%= s.title %> </td>
             <td>
               <%= form_tag update_position_railway_station_path(s), method: :patch do %>
                   <%= number_field_tag :station_number, s.position_in(@route) %>
