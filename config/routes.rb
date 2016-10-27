@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   resources :trains do
     resource :carriages, shallow: true
   end
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
   end
   resources :routes
   resources :carriages
+
+  resource :search, only: [:show, :create]
+
 
   get 'welcome/index'
 

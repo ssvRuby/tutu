@@ -16,7 +16,6 @@
   <% @train.carriage_list.each do |c| %>
       <li>
         <%= link_to "Вагон № #{c.number}", carriage_path(c) %>
-        <!--<%# link_to "Вагон № #{c.number}", [@train, c] %>-->
       </li>
   <% end %>
 </ul>

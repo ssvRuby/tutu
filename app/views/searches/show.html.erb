@@ -1,0 +1,9 @@
+<h1>Поиск билетов</h1>
+
+<%= form_for(@search, method: :post, url: search_path) do |f| %>
+    <%= render 'common/errors', resource: @search %>
+
+    <%= f.label :start_station_id %>
+    <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title %>
+<% end %>
+
