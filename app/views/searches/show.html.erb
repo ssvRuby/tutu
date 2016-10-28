@@ -34,7 +34,14 @@
                 <td width="200"><%= t.route.title %></td>
                 <td align="center"><%= @search.start_station.arrival_time(t.route) %></td>
                 <td align="center"><%= @search.end_station.departure_time(t.route) %></td>
-                <td ><%= "BAY TICKET" %></td>
+                <td>
+                  <%= form_tag new_ticket_path, method: :get do %>
+                      <%= hidden_field_tag :train_id, t.id %>
+                      <%= hidden_field_tag :start_station_id, @search.start_station_id %>
+                      <%= hidden_field_tag :end_station_id, @search.end_station_id %>
+                      <%= submit_tag "Купить" %>
+                  <% end %>
+                </td>
               </tr>
           <% end %>
           </tbody>
