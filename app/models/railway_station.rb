@@ -18,6 +18,7 @@ class RailwayStation < ApplicationRecord
   #----------------------------------------------------------------------------------------------------------------
 
   scope :ordered, -> { select("railway_stations.*, railway_stations_routes.station_number").joins(:railway_stations_routes).order("railway_stations_routes.station_number").distinct }
+  scope :ordered_by_title, -> { order('title asc')}
 
   def update_position(route, position)
     station_route = station_route(route)
@@ -26,6 +27,14 @@ class RailwayStation < ApplicationRecord
 
   def position_in(route)
     station_route(route).try(:station_number)
+  end
+
+  def arrival_time(route)
+    railway_stations_routes.where(route: route).first.arrival_time
+  end
+
+  def departure_time(route)
+    railway_stations_routes.where(route: route).first.departure_time
   end
 
   protected
