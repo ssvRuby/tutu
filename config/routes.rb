@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
 
+  # Add for devise
+  devise_for :users
 
-  resources :trains do
-    resource :carriages, shallow: true
+  namespace :admin do
+    resources :trains do
+      resource :carriages, shallow: true
+    end
+    resources :railway_stations do
+      patch :update_position, on: :member
+    end
+    resources :routes
+    resources :carriages
   end
-  resources :railway_stations do
-    patch :update_position, on: :member
-  end
-  resources :routes
-  resources :carriages
 
   resources :tickets
-
   resource :search, only: [:show, :create]
 
 

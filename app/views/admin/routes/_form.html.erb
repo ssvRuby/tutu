@@ -1,0 +1,19 @@
+<%= form_for [:admin, route] do |f| %>
+    <%= render 'common/errors', resource: route %>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :railway_station_ids, "Cтанции:" %>
+      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, {multiple: true} %>
+    </div>
+    <div class="field">
+      <%= f.label :train_ids, "Поезда:" %>
+      <%= f.collection_select :train_ids, Train.all, :id, :number, {}, {multiple: true} %>
+    </div>
+    <div class="actions">
+      <%= f.submit "#{route.new_record? ? 'Создать' : 'Изменить'}" %>
+    </div>
+<% end %>
+

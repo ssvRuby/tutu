@@ -1,0 +1,10 @@
+<% carriages.each do |c| %>
+    <tr>
+      <td><%= c.number %></td>
+      <td><%= c.type %></td>
+      <td><%= c.carriage_type %></td>
+      <td><%= link_to 'Показать', admin_carriage_path(c) %></td>
+      <td><%= link_to 'Редактировать', edit_admin_carriage_path(c) %></td>
+      <td><%= link_to 'Удалить', admin_carriage_path(c) , method: :delete, data: { confirm: 'Вы уверены?' }%></td>
+    </tr>
+<% end %>
