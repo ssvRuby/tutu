@@ -15,7 +15,7 @@
 <ul>
   <% @train.carriage_list.each do |c| %>
       <li>
-        <%= link_to c.number, carriage_path(c) %>
+        <%= link_to "Вагон № #{c.number}", carriage_path(c) %>
       </li>
   <% end %>
 </ul>
@@ -53,6 +53,9 @@
   <% end %>
 </p>
 
+<p>
+  <%= link_to 'Добавить вагон', new_train_carriages_path(@train) %>
+</p>
 
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |

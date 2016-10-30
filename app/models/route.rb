@@ -9,12 +9,12 @@ class Route < ApplicationRecord
   before_validation :set_title
 
 
-
   private
 
   def set_title
     self.title = "#{railway_stations.first.title} - #{railway_stations.last.title}"
   end
+
 
   def station_count
     if railway_stations.size < 2

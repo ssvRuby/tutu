@@ -1,0 +1,38 @@
+<h1>Просмотр билета</h1>
+
+<table>
+  <tbody align="left">
+  <tr>
+    <th><%= 'Поезд' %></th>
+    <td><%= @ticket.train.number %></td>
+  </tr>
+  <tr>
+    <th><%= 'Маршрут' %></th>
+    <td><%= @ticket.train.route.title %></td>
+  </tr>
+  <tr>
+    <th><%= 'Станция отправления' %></th>
+    <td>
+      <%= @ticket.start_station.title %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= 'Станция Назначения' %></th>
+    <td>
+      <%= @ticket.end_station.title %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= 'Пассажир' %></th>
+    <td>
+      <%= @ticket.passenger_name %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= 'Пасспорт' %></th>
+    <td>
+      <%= @ticket.passport_number %>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,45 @@
+<h1>Покупка билета</h1>
+
+<table>
+  <tbody align="left">
+  <tr>
+    <th>Номер поезда:</th>
+    <td><%= @train.number %></td>
+  </tr>
+  <tr>
+    <th>Маршрут:</th>
+    <td><%= @train.route.title %></td>
+  </tr>
+  <tr>
+    <th>Станция отправления:</th>
+    <td><%= @start_station.title %></td>
+  </tr>
+  <tr>
+    <th>Станция назначения:</th>
+    <td><%= @end_station.title %></td>
+  </tr>
+  </tbody>
+</table>
+
+<h1>Данные пассажира:</h1>
+<%= form_for(@ticket) do |f| %>
+
+    <%= render 'common/errors', resource: @ticket %>
+    <%= f.hidden_field :train_id %>
+    <%= f.hidden_field :start_station_id %>
+    <%= f.hidden_field :end_station_id %>
+
+    <div class="field">
+      <%= f.label :passenger_name %>
+      <%= f.text_field :passenger_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :passport_number %>
+      <%= f.text_field :passport_number %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Приобрести билет' %>
+    </div>
+<% end %>
