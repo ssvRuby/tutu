@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
     resources :routes
     resources :carriages
+    resources :tickets
   end
 
   resources :tickets

@@ -4,7 +4,6 @@ class Admin::CarriagesController < Admin::BaseController
   before_action :set_train, only: [:new, :create, :index]
 
   def index
-    # @carriages = Carriage.all
     redirect_to [:admin, @train]
   end
 
