@@ -1,5 +1,4 @@
 <h1>Покупка билета</h1>
-
 <table>
   <tbody align="left">
   <tr>
@@ -20,7 +19,6 @@
   </tr>
   </tbody>
 </table>
-
 <h1>Данные пассажира:</h1>
 <%= form_for(@ticket) do |f| %>
 
@@ -40,6 +38,10 @@
     </div>
 
     <div class="actions">
-      <%= f.submit 'Приобрести билет' %>
+      <%= f.submit 'Купить!' %>
     </div>
 <% end %>
+<p>
+  <%= link_to 'Список билетов', tickets_path %> |
+  <%= link_to 'Новый поиск', search_path %>
+</p>

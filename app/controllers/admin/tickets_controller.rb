@@ -1,23 +1,33 @@
-class TicketsController < ApplicationController
-  before_action :authenticate_user!
+class Admin::TicketsController < Admin::BaseController
   before_action :addition_params, only: [:new]
-  before_action :set_ticket, only: [:show, :destroy]
+  before_action :set_ticket, only: [:show, :destroy, :update, :edit]
 
   def show
   end
 
   def index
-    @tickets = current_user.tickets
+    @tickets = Ticket.all
   end
 
   def create
       @ticket = current_user.tickets.new(ticket_params)
 
       if @ticket.save
-        redirect_to ticket_path(@ticket), method: :post
+        redirect_to admin_ticket_path(@ticket), method: :post
       else
         render :show
       end
+  end
+
+  def edit
+  end
+
+  def update
+    if @ticket.update(ticket_params)
+      redirect_to admin_ticket_path(@ticket)
+    else
+      render :new
+    end
   end
 
   def new
@@ -28,7 +38,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path
+    redirect_to admin_tickets_path
   end
 
   private
@@ -44,7 +54,7 @@ class TicketsController < ApplicationController
   end
 
   def set_ticket
-    @ticket = current_user.tickets.find(params[:id])
+    @ticket = Ticket.find(params[:id])
   end
 
 end

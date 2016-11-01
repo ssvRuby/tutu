@@ -1,0 +1,26 @@
+<h1>Редактирование билета</h1>
+
+<table>
+  <tbody align="left">
+  <tr>
+    <th>Номер поезда:</th>
+    <td><%= @ticket.train.number %></td>
+  </tr>
+  <tr>
+    <th>Маршрут:</th>
+    <td><%= @ticket.train.route.title %></td>
+  </tr>
+  <tr>
+    <th>Станция отправления:</th>
+    <td><%= @ticket.start_station.title %></td>
+  </tr>
+  <tr>
+    <th>Станция назначения:</th>
+    <td><%= @ticket.end_station.title %></td>
+  </tr>
+  </tbody>
+</table>
+<%=render 'form'%>
+<p>
+  <%= link_to 'Список билетов', admin_tickets_path %>
+</p>

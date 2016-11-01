@@ -1,0 +1,14 @@
+<h1>Вагоны</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Номер вагона</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render 'carr', carriages: @carriages %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Новый вагон', new_admin_carriage_path %>
