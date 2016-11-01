@@ -8,20 +8,52 @@ ru:
           attributes:
             title:
               blank: 'должно быть указано'
+        railway_station_route:
+          attributes:
+            railway_station_id:
+               taken: 'должна быть уникальной в маршруте'
+        carriage:
+          attributes:
+            number:
+              taken: 'должен быть уникальным в поезде'
     models:
-      railway_station: 'Станция'
-      train: 'Поезд'
-      carriage: 'Вагон'
-      route: 'Маршрут'
-      search: 'Поиск'
-      ticket: 'Билет'
-      user: 'Пользователь'
+      railway_station:  'Станция'
+      train:            'Поезд'
+      carriage:         'Вагон'
+      carriage_сoupe:   'Купейный вагон'
+      carriage_economy: 'Плацкартный вагон'
+      carriage_sv:      'Вагон СВ'
+      carriage_seating: 'Сидячий вагон'
+      route:            'Маршрут'
+      search:           'Поиск'
+      ticket:           'Билет'
+      user:             'Пользователь'
     attributes:
+      user:
+        first_name: 'Имя'
+        last_name:  'Фамилия'
+      ticket:
+        start_station:   'Начальная станция'
+        end_station:     'Конечная станция'
+        passenger_name:  'Имя пассажира'
+        passport_number: 'Номер паспорта'  
       railway_station:
         title: 'Название'
+      route:
+        name:                'Название'
+        railway_station_ids: 'Станции'
       train:
-        number: 'Номер'
+        number:          'Номер'
         current_station: 'Текущая станция'
-        route: 'Маршрут'
-        sort_order: 'Порядок нумерации вагонов: "С головы состава"'
-
+        route:           'Маршрут'
+        sort_order:      'Порядок нумерации вагонов: <<С головы состава>>'
+      carriage:
+        number:             'Номер'
+        type:               'Тип'
+        carriage_type:      'Тип вагона'
+        top_places:         'Верхние'
+        bottom_places:      'Нижние'
+        side_top_places:    'Верхние боковые'
+        side_bottom_places: 'Нижние боковые'
+        seats:              'Сидения'
+        

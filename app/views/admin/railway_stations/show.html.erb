@@ -1,11 +1,9 @@
-<p>
-  <strong>Станция:</strong>
-  <%= @railway_station.title %>
-</p>
+<h1><%=t('.title')%> <%= @railway_station.title %></h1>
+
 <% if @railway_station.routes.empty? %>
-    <p>Станция не входит ни в один маршрут!</p>
+    <p><%=t('.out_route')%></p>
 <% else %>
-    <p>Станция входит в следующие маршруты:</p>
+    <p><%=t('.in_routes')%></p>
     <ul>
       <% @railway_station.routes.each do |route| %>
           <li> <%= route.title %> </li>
@@ -13,5 +11,5 @@
     </ul>
 <% end %>
 
-<%= link_to 'Редактировать', edit_admin_railway_station_path(@railway_station) %> |
-<%= link_to 'Назад', admin_railway_stations_path %>
+<%= link_to t('.edit'), edit_admin_railway_station_path(@railway_station) %> |
+<%= link_to t('common.back'), admin_railway_stations_path %>
