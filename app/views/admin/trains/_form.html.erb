@@ -1,19 +1,19 @@
 <%= form_for [:admin, train] do |f| %>
     <%= render 'common/errors', resource: train %>
     <div class="field">
-      <%= f.label :Номер %>
+      <%= f.label :number %>
       <%= f.text_field :number %>
     </div>
     <div class="field">
-      <%= f.label :current_station, "Текущая станция" %>
+      <%= f.label :current_station%>
       <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
     </div>
     <div class="field">
-      <%= f.label :route, "Маршрут" %>
+      <%= f.label :route %>
       <%= f.collection_select :route_id, Route.all, :id, :title %>
     </div>
     <div class="field">
-      <%= f.label :sort_order, 'Порядок вагонов << С головы >>' %>
+      <%= f.label :sort_order %>
       <%= f.check_box :sort_order %>
     </div>
     <div class="actions">

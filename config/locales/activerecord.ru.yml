@@ -1,0 +1,27 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+      models:
+        railway_station:
+          attributes:
+            title:
+              blank: 'должно быть указано'
+    models:
+      railway_station: 'Станция'
+      train: 'Поезд'
+      carriage: 'Вагон'
+      route: 'Маршрут'
+      search: 'Поиск'
+      ticket: 'Билет'
+      user: 'Пользователь'
+    attributes:
+      railway_station:
+        title: 'Название'
+      train:
+        number: 'Номер'
+        current_station: 'Текущая станция'
+        route: 'Маршрут'
+        sort_order: 'Порядок нумерации вагонов: "С головы состава"'
+
