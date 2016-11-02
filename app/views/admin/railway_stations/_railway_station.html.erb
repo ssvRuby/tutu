@@ -1,6 +1,8 @@
-<tr>
-  <td><%= railway_station.title %></td>
-  <td><%= link_to 'Показать', admin_railway_station_path(railway_station) %></td>
-  <td><%= link_to 'Редактировать', edit_admin_railway_station_path(railway_station) %></td>
-  <td><%= link_to 'Удалить', admin_railway_station_path(railway_station), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
-</tr>
+<table class="table table-striped">
+  <tr>
+    <td><%= railway_station.title %></td>
+    <td><%= link_to t('.show'), admin_railway_station_path(railway_station), class: 'btn btn-link' %></td>
+    <td><%= link_to t('.edit'), edit_admin_railway_station_path(railway_station), class: 'btn btn-link' %></td>
+    <td><%= link_to t('.delete'), admin_railway_station_path(railway_station), method: :delete, data: {confirm: t('.confirm')}, class: 'btn btn-link' %></td>
+  </tr>
+</table>

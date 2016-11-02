@@ -1,6 +1,6 @@
 <h1>Редактирование билета</h1>
 
-<table>
+<table class='table table-striped'>
   <tbody align="left">
   <tr>
     <th>Номер поезда:</th>
@@ -22,5 +22,5 @@
 </table>
 <%=render 'form'%>
 <p>
-  <%= link_to 'Список билетов', admin_tickets_path %>
+  <%= link_to 'Список билетов', admin_tickets_path, class: 'btn btn-success' %>
 </p>

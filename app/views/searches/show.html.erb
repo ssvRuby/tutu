@@ -2,27 +2,29 @@
 
 <%= form_for(@search, method: :post, url: search_path) do |f| %>
     <%= render 'common/errors', resource: @search %>
-    <div class="field">
-      <%= f.label :start_station_id, 'Станция отправления' %>
-      <%= f.collection_select :start_station_id, RailwayStation.ordered_by_title.all, :id, :title %>
-    </div>
-    <div class="field">
-      <%= f.label :end_station_id, 'Станция назначения' %>
-      <%= f.collection_select :end_station_id, RailwayStation.ordered_by_title.all, :id, :title %>
-    </div>
-    <p>
-    <div class="actions">
-      <%= f.submit 'Найти' %>
-    </div>
-    </p>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <%# f.label :start_station_id, 'Станция отправления' %>
+          <%= f.collection_select :start_station_id, RailwayStation.ordered_by_title.all, :id, :title, {}, class: 'form-control' %>
+        </div>
+        <div class="col-md-4">
+          <%# f.label :end_station_id, 'Станция назначения' %>
+          <%= f.collection_select :end_station_id, RailwayStation.ordered_by_title.all, :id, :title, {}, class: 'form-control'  %>
+        </div>
+        <div class="col-md-4">
+          <%= f.submit 'Найти', class: 'btn btn-primary'   %>
+        </div>
+      </div>
+    </div>
     <% if @search.result %>
         <h2><%= 'Результаты поиска:' %></h2>
-        <table>
-          <thead align="center">
+        <table class="table table-hover">
+          <thead>
           <tr>
             <td><%= 'Поезд' %></td>
-            <td width="200"><%= 'Маршрут' %></td>
+            <td><%= 'Маршрут' %></td>
             <td><%= 'Время отправления' %></td>
             <td><%= 'Время прибытия' %></td>
           </tr>
@@ -31,15 +33,15 @@
           <% @search.result.each do |t| %>
               <tr>
                 <td><%= t.number %></td>
-                <td width="200"><%= t.route.title %></td>
-                <td align="center"><%= @search.start_station.arrival_time(t.route) %></td>
-                <td align="center"><%= @search.end_station.departure_time(t.route) %></td>
+                <td><%= t.route.title %></td>
+                <td><%= @search.start_station.arrival_time(t.route) %></td>
+                <td><%= @search.end_station.departure_time(t.route) %></td>
                 <td>
                   <%= form_tag new_ticket_path, method: :get do %>
                       <%= hidden_field_tag :train_id, t.id %>
                       <%= hidden_field_tag :start_station_id, @search.start_station_id %>
                       <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                      <%= submit_tag "" %>
+                      <%= submit_tag "Оформить", class: 'btn btn-success' %>
                   <% end %>
                 </td>
               </tr>

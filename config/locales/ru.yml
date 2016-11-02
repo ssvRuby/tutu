@@ -1,0 +1,65 @@
+ru:
+  common:
+    back: 'Назад'
+    errors: 'При заполнении формы возникли ошибки'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      form:
+        submit: '%{action} станцию'
+      show:
+        title:     'Станция'
+        in_routes: 'Станция входит в следующие маршруты:'
+        out_route: 'Станция не входит ни в один маршрут!'
+        edit:      'Редактировать'
+      index:
+        title: 'Список станций'
+        new:   'Добавить станцию'
+      edit:
+        title: 'Редактирование'
+      railway_station:
+        delete:  'Удалить'
+        edit:    'Редактировать'
+        show:    'Показать'
+        confirm: 'Вы уверены?'
+  devise:
+    registrations:
+      new:
+        title:    'Регистрация'
+        submit:   'Зарегистрироваться'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        characters_minimum: 'символов минимум'
+    confirmations:
+      new:
+        title:  'Отправить инструкции для подтверждения'
+        submit: 'Отправить'
+    sessions:
+      new:
+        login:       'Войти'
+        password:    'Пароль'
+        remember_me: 'Запомнить меня'
+    passwords:
+      new:
+        title: 'Забыли пароль?'
+        submit: 'Отправить пароль'
+      edit:
+        title:    'Изменить пароль'
+        submit:   'Изменить пароль'
+        confirm:  'Подтвердите пароль'
+        new_pass: 'Новый пароль'
+    shared:
+      links:
+        login:                      'Войти'
+        sign_up:                    'Зарегистрироваться'
+        forgot_password:            'Забыли пароль?'
+        didnt_receive_confirmation: 'Не получили подтверждения?'
+        didnt_receive_unlock:       'Не получили инструкции по разблокированию?'
+        sign_in_with:               'Зарегистрироваться с '
+    mailer:
+      confirmation_instructions:
+        action: "Активировать"
+        hello:  "Привет, %{email}!"
+        instruction: "Вы можете активировать свою учетную запись, нажав ссылку снизу:"
+        confirm: "Подтвердить"

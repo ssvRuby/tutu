@@ -1,4 +1,4 @@
-<h1>Редактирование (станция)</h1>
+<h1><%= t('.title')%></h1>
 <%= render 'form', railway_station: @railway_station %>
-<%= link_to 'Показать', admin_railway_station_path(@railway_station) %> |
-<%= link_to 'Назад', admin_railway_stations_path %>
+<%= link_to 'Показать', admin_railway_station_path(@railway_station), class: 'btn btn-link' %> |
+<%= link_to t('common.back'), admin_railway_stations_path, class: 'btn btn-link' %>

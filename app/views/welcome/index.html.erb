@@ -1,8 +1,8 @@
-<h1> RAILWAY ... </h1>
-
-<p><%= link_to 'Станции', admin_railway_stations_path %></p>
-<p><%= link_to 'Маршруты', admin_routes_path %></p>
-<p><%= link_to 'Поезда', admin_trains_path %></p>
-<p><%= link_to 'Билеты', admin_tickets_path %></p>
-<p><%= link_to 'Поиск билетов', search_path %></p>
-
+<ul class="nav nav-list">
+  <li class="nav-header"> <h3>Администрирование</h3></li>
+  <li><%= link_to 'Станции', admin_railway_stations_path, class: 'btn-link' %></li>
+  <li><%= link_to 'Маршруты', admin_routes_path, class: 'btn-link' %></li>
+  <li><%= link_to 'Поезда', admin_trains_path, class: 'btn-link' %></li>
+  <li><%= link_to 'Билеты', admin_tickets_path, class: 'btn-link' %></li>
+  <li><%= link_to 'Поиск билетов', search_path, class: 'btn-link' %></li>
+</ul>

@@ -1,15 +1,8 @@
-<h1>Станции</h1>
+<h1><%=t('.title')%></h1>
 <table>
-  <thead>
-  <tr>
-    <th>Наименование</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
   <tbody>
   <%= render @railway_stations %>
   </tbody>
 </table>
 <br>
-<%= link_to 'Новая станция', new_admin_railway_station_path %>
+<%= link_to t('.new'), new_admin_railway_station_path, class: 'btn btn-success' %>

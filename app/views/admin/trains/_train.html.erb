@@ -1,6 +1,10 @@
-<tr>
-  <td><%= train.number %></td>
-  <td><%= link_to 'Показать', admin_train_path(train) %></td>
-  <td><%= link_to 'Редактировать', edit_admin_train_path(train) %></td>
-  <td><%= link_to 'Удалить', admin_train_path(train), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
-</tr>
+<div class="col-md-12">
+  <table class="table table-striped">
+    <tr>
+      <td><%= train.number %></td>
+      <td><%= link_to 'Показать', admin_train_path(train), class: 'btn btn-link' %></td>
+      <td><%= link_to 'Редактировать', edit_admin_train_path(train), class: 'btn btn-link' %></td>
+      <td><%= link_to 'Удалить', admin_train_path(train), method: :delete, data: {confirm: 'Вы уверены?'}, class: 'btn btn-link' %></td>
+    </tr>
+  </table>
+</div>

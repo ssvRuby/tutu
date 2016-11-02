@@ -1,5 +1,5 @@
 <h1>Просмотр билета</h1>
-<table>
+<table class='table table-striped'>
   <tbody align="left">
   <tr>
     <th><%= 'Поезд' %></th>
@@ -37,5 +37,5 @@
 </table>
 
 <p>
-  <%= link_to 'Список билетов', admin_tickets_path %>
+  <%= link_to 'Список билетов', admin_tickets_path, class: 'btn btn-link'  %>
 </p>

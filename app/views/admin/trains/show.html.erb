@@ -1,7 +1,10 @@
+<h2>Информация о поезде</h2>
+
 <p>
-  <strong>Поезд номер:</strong>
+  <label>Поезд номер:</label>
   <%= @train.number %>
 </p>
+
 <p>
   <strong>Количество вагонов:</strong>
   <%= @train.carriages.length %>
@@ -17,17 +20,17 @@
 </ul>
 </p>
 <p>
-<strong>Количество вагонов по типам:</strong>
-  <ul>
-    <% @train.carr_by_type.each do |t| %>
-    <li>
-      <%= "#{t[0]} -- #{t[1]} " %>
-      <% @train.places_by_type(t[0]).each do |p| %>
-        <%= "#{p[0]}: #{p[1]}" %>
-      <% end %>
-    </li>
-    <% end %>
-  </ul>
+  <strong>Количество вагонов по типам:</strong>
+<ul>
+  <% @train.carr_by_type.each do |t| %>
+      <li>
+        <%= "#{t[0]} -- #{t[1]} " %>
+        <% @train.places_by_type(t[0]).each do |p| %>
+            <%= "#{p[0]}: #{p[1]}" %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>
 </p>
 <p>
   <strong>Маршрут:</strong>
@@ -40,13 +43,13 @@
 <p>
   <strong>На станции:</strong>
   <% if @train.current_station.present? %>
-    <%= @train.current_station.title %>
+      <%= @train.current_station.title %>
   <% else %>
-    Не указано
+      Не указано
   <% end %>
 </p>
 <p>
-  <%= link_to 'Добавить вагон', new_admin_train_carriages_path(@train) %>
+  <%= link_to 'Добавить вагон', new_admin_train_carriages_path(@train), class: "btn btn-success" %>
 </p>
-<%= link_to 'Редактировать', edit_admin_train_path(@train) %> |
-<%= link_to 'Назад', admin_trains_path %>
+<%= link_to 'Редактировать', edit_admin_train_path(@train), class: "btn btn-link" %> |
+<%= link_to 'Назад', admin_trains_path, class: "btn btn-link" %>
