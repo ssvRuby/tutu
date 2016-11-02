@@ -1,9 +1,9 @@
-<p>
+<p class="form-control">
   <strong>Наименование маршрута:</strong>
-  <%= @route.title %>
+  <%= @route.title%>
 </p>
 
-<p>
+<p class="form-control">
   <strong>Список поездов маршрута:</strong>
   <% if @route.trains.empty? %>
       Поездов на маршруте нет
@@ -16,7 +16,7 @@
   <% end %>
 </p>
 
-<p>
+<p class="form-control">
   <strong>Список станций маршрута:</strong>
   <% if @route.railway_stations.empty? %>
       Станций в маршруте нет
@@ -36,7 +36,7 @@
               <%= form_tag update_position_admin_railway_station_path(s), method: :patch do %>
                   <%= number_field_tag :station_number, s.position_in(@route) %>
                   <%= hidden_field_tag :route_id, @route.id%>
-                  <%= submit_tag "Изменить" %>
+                  <%= submit_tag "Изменить", class: 'btn btn-success' %>
               <% end %>
             </td>
           </tr>
@@ -46,5 +46,5 @@
 <% end %>
 </p>
 
-<%= link_to 'Редактировать', edit_admin_route_path(@route) %> |
-<%= link_to 'Назад', admin_routes_path %>
+<%= link_to 'Редактировать', edit_admin_route_path(@route), class: 'btn btn-link' %> |
+<%= link_to 'Назад', admin_routes_path, class: 'btn btn-link' %>

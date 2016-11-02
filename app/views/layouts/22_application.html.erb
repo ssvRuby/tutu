@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutu</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <p id="notice"; class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <% if user_signed_in? %>
+      <p><%= "Привет #{current_user.first_name} #{current_user.last_name}!"%></p>
+      <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
+      <% if current_user.admin? %>
+          <li><%= link_to "Админка", welcome_index_path %></li>
+      <% else %>
+          <li><%= link_to "Главная", search_path %></li>
+      <% end %>
+  <% else %>
+      <li><%= link_to "Войти", new_user_session_path %></li>
+  <% end %>
+
+    <%= yield %>
+
+  <div id="footer">
+    <p> (c) 2016 Sergey Sirosh. Учебный проект в
+    <a href="http://www.thinknetica.com">онлайн-школе Thinknetica</a>
+    </p>
+  </div>
+  </body>
+</html>

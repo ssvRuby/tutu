@@ -1,6 +1,6 @@
 <h1>Список билетов</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
   <th>Номер</th>
   <th>Пассажир</th>
@@ -20,9 +20,9 @@
     <td><%=t.start_station.title%></td>
     <td><%=t.end_station.title%></td>
     <td><%=t.created_at%></td>
-    <td><%=link_to 'Показать', admin_ticket_path(t)%></td>
-    <td><%= link_to 'Редактировать', edit_admin_ticket_path(t) %></td>
-    <td><%=link_to 'Удалить', admin_ticket_path(t), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+    <td><%=link_to 'Показать', admin_ticket_path(t), class: 'btn btn-link'%></td>
+    <td><%= link_to 'Редактировать', edit_admin_ticket_path(t), class: 'btn btn-link' %></td>
+    <td><%=link_to 'Удалить', admin_ticket_path(t), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-link' %></td>
   </tr>
   <%end%>
   </tbody>

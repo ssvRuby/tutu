@@ -1,22 +1,27 @@
 <%= form_for [:admin, train] do |f| %>
     <%= render 'common/errors', resource: train %>
-    <div class="field">
-      <%= f.label :number %>
-      <%= f.text_field :number %>
-    </div>
-    <div class="field">
-      <%= f.label :current_station%>
-      <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
-    </div>
-    <div class="field">
-      <%= f.label :route %>
-      <%= f.collection_select :route_id, Route.all, :id, :title %>
-    </div>
-    <div class="field">
-      <%= f.label :sort_order %>
-      <%= f.check_box :sort_order %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
+
+    <div class="col-md-6">
+      <div>
+        <%= f.label :number %>
+        <%= f.text_field :number, class: "form-control" %><br/>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_station %>
+        <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title, {}, class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :route %>
+        <%= f.collection_select :route_id, Route.all, :id, :title, {}, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :sort_order %>
+        <%= f.check_box :sort_order %>
+      </div>
+      <div class="'btn btn-success'">
+        <%= f.submit 'Создать', class: 'btn btn-success' %>
+      </div>
     </div>
 <% end %>

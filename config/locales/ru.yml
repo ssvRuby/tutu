@@ -26,12 +26,20 @@ ru:
   devise:
     registrations:
       new:
-        title: 'Регистрация'
-        submit: 'Зарегистрироваться'
+        title:    'Регистрация'
+        submit:   'Зарегистрироваться'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        characters_minimum: 'символов минимум'
     confirmations:
       new:
         title:  'Отправить инструкции для подтверждения'
         submit: 'Отправить'
+    sessions:
+      new:
+        login:       'Войти'
+        password:    'Пароль'
+        remember_me: 'Запомнить меня'
     passwords:
       new:
         title: 'Забыли пароль?'
