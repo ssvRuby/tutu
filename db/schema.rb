@@ -45,12 +45,6 @@ ActiveRecord::Schema.define(version: 20161103095354) do
     t.index ["railway_station_id", "route_id"], name: "staton_route_i", unique: true, using: :btree
   end
 
-  create_table "routes", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tickets", force: :cascade do |t|
     t.string   "number"
     t.integer  "user_id"
@@ -63,6 +57,12 @@ ActiveRecord::Schema.define(version: 20161103095354) do
     t.string   "passport_number"
     t.index ["start_station_id", "end_station_id"], name: "index_tickets_on_start_station_id_and_end_station_id", using: :btree
     t.index ["user_id"], name: "index_tickets_on_user_id", using: :btree
+  end
+
+  create_table "train_routes", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trains", force: :cascade do |t|
