@@ -1,41 +1,8 @@
-<h2>Просмотр билета</h2>
-<table>
-  <tbody align="left">
-  <tr>
-    <th><%= 'Поезд' %></th>
-    <td class='form-control'><%= @ticket.train.number%></td>
-  </tr>
-  <tr>
-    <th><%= 'Маршрут' %></th>
-    <td class='form-control'><%= @ticket.train.route.title%></td>
-  </tr>
-  <tr>
-    <th><%= 'Станция отправления' %></th>
-    <td class='form-control'>
-      <%= @ticket.start_station.title %>
-    </td>
-  </tr>
-  <tr>
-    <th><%= 'Станция Назначения' %></th>
-    <td class='form-control'>
-      <%= @ticket.end_station.title%>
-    </td>
-  </tr>
-  <tr>
-    <th><%= 'Пассажир' %></th>
-    <td class='form-control'>
-      <%= @ticket.passenger_name%>
-    </td>
-  </tr>
-  <tr>
-    <th><%= 'Пасспорт' %></th>
-    <td class='form-control'>
-      <%= @ticket.passport_number %>
-    </td>
-  </tr>
-  </tbody>
-</table>
-<p>
+<p/>
+
+<%= render 'common/ticket' , ticket: @ticket %>
+
+<div class="col-md-12">
   <%= link_to 'Список билетов', tickets_path, class: 'btn btn-link' %> |
   <%= link_to 'Новый поиск', search_path, class: 'btn btn-link' %>
-</p>
+</div>
