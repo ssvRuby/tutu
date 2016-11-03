@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103095354) do
+ActiveRecord::Schema.define(version: 20161103135413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 20161103095354) do
     t.index ["railway_station_id", "route_id"], name: "staton_route_i", unique: true, using: :btree
   end
 
+  create_table "routes", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.string   "number"
     t.integer  "user_id"
@@ -59,7 +65,7 @@ ActiveRecord::Schema.define(version: 20161103095354) do
     t.index ["user_id"], name: "index_tickets_on_user_id", using: :btree
   end
 
-  create_table "routes", force: :cascade do |t|
+  create_table "train_routes", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
