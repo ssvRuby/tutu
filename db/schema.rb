@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031141352) do
+ActiveRecord::Schema.define(version: 20161103095354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161031141352) do
     t.integer  "side_bottom_places_qty", default: 0
     t.integer  "seats_qty",              default: 0
     t.string   "type"
+    t.index ["id", "type"], name: "index_carriages_on_id_and_type", using: :btree
   end
 
   create_table "railway_stations", force: :cascade do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20161031141352) do
     t.integer "station_number"
     t.string  "arrival_time"
     t.string  "departure_time"
+    t.index ["railway_station_id", "route_id"], name: "staton_route_i", unique: true, using: :btree
   end
 
   create_table "routes", force: :cascade do |t|
@@ -59,6 +61,8 @@ ActiveRecord::Schema.define(version: 20161031141352) do
     t.datetime "updated_at",       null: false
     t.string   "passenger_name"
     t.string   "passport_number"
+    t.index ["start_station_id", "end_station_id"], name: "index_tickets_on_start_station_id_and_end_station_id", using: :btree
+    t.index ["user_id"], name: "index_tickets_on_user_id", using: :btree
   end
 
   create_table "trains", force: :cascade do |t|
