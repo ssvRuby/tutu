@@ -65,11 +65,11 @@ ActiveRecord::Schema.define(version: 20161103135413) do
     t.index ["user_id"], name: "index_tickets_on_user_id", using: :btree
   end
 
-  create_table "train_routes", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  # create_table "train_routes", force: :cascade do |t|
+  #   t.string   "title"
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  # end
 
   create_table "trains", force: :cascade do |t|
     t.string   "number"
