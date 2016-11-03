@@ -14,7 +14,6 @@ class Ticket < ApplicationRecord
   end
 
   def cancel_notification
-    puts "================== cancel_notification =================="
     p self
     TicketMailer.cancel_ticket(self).deliver_now
   end

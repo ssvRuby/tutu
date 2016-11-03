@@ -14,7 +14,7 @@ module Tutu
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :ru
 
-    config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { :api_token => "14be132d-0919-4508-bf17-0cbc12af7831" }
+    # config.action_mailer.delivery_method = :postmark
+    # config.action_mailer.postmark_settings = { :api_token => "14be132d-0919-4508-bf17-0cbc12af7831" }
   end
 end
