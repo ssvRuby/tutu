@@ -1,3 +1,6 @@
 <p/>
 <h3> Покупка билета </h3>
 <%= render 'common/ticket' , ticket: @ticket %>
+
+<p><%= link_to "Информация о билете", @ticket %></p>
+<p><%= link_to "Список купленных билетов", tickets_url %></p>
