@@ -1,0 +1,13 @@
+<%= form_for [:admin, train], html: { style: "display: #{hidden ? 'none' : 'block'}"} do |f| %>
+    <%= render 'common/errors', resource: train %>
+
+    <div class="col-md-6">
+      <div>
+        <%= f.label :number %>
+        <%= f.text_field :number, class: "form-control" %><br/>
+      </div>
+      <div class="'btn btn-success'">
+        <%= f.submit  "#{train.new_record? ? 'Создать' : 'Изменить'}", class: 'btn btn-success'  %>
+      </div>
+    </div>
+<% end %>

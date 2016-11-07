@@ -12,7 +12,7 @@ class Route < ApplicationRecord
   private
 
   def set_title
-    self.title = "#{railway_stations.first.title} - #{railway_stations.last.title}"
+    self.title = "#{railway_stations.first.title} - #{railway_stations.last.title}" unless self.title.present?
   end
 
 

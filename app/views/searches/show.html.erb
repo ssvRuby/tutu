@@ -3,21 +3,22 @@
 <%= form_for(@search, method: :post, url: search_path) do |f| %>
     <%= render 'common/errors', resource: @search %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <%# f.label :start_station_id, 'Станция отправления' %>
-          <%= f.collection_select :start_station_id, RailwayStation.ordered_by_title.all, :id, :title, {}, class: 'form-control' %>
-        </div>
-        <div class="col-md-4">
-          <%# f.label :end_station_id, 'Станция назначения' %>
-          <%= f.collection_select :end_station_id, RailwayStation.ordered_by_title.all, :id, :title, {}, class: 'form-control' %>
-        </div>
-        <div class="col-md-4">
-          <%= f.submit 'Найти', class: 'btn btn-primary' %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <%# f.label :start_station_id, 'Станция отправления' %>
+            <%= f.collection_select :start_station_id, RailwayStation.ordered_by_title.all, :id, :title, {}, class: 'form-control' %>
+          </div>
+          <div class="col-md-4">
+            <%# f.label :end_station_id, 'Станция назначения' %>
+            <%= f.collection_select :end_station_id, RailwayStation.ordered_by_title.all, :id, :title, {}, class: 'form-control' %>
+          </div>
+          <div class="col-md-4">
+            <%= f.submit 'Найти', class: 'btn btn-primary' %>
+          </div>
         </div>
       </div>
-    </div>
+
     <% if @search.result %>
         <% unless @search.result.empty? %>
             <h2><%= 'Результаты поиска:' %></h2>
@@ -42,15 +43,15 @@
                           <%= hidden_field_tag :train_id, t.id %>
                           <%= hidden_field_tag :start_station_id, @search.start_station_id %>
                           <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                          <%= submit_tag "Оформить", class: 'btn btn-success' %>
+                          <% submit_tag "Оформить", class: 'btn btn-success' %>
                       <% end %>
                     </td>
                   </tr>
               <% end %>
               </tbody>
             </table>
-            <%else%>
-            <p ><h4 class="text-danger">Ничего не найдено...</h4></p>
+        <% else %>
+            <p><h4 class="text-danger">Ничего не найдено...</h4></p>
         <% end %>
     <% end %>
 <% end %>
