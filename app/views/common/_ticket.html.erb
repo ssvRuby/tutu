@@ -1,0 +1,64 @@
+<p/>
+<form>
+
+  <div class="panel-group col-md-8">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        <h4> Билет </h4>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="col-md-4">
+          Поезд №:
+        </div>
+        <div class="col-md-8">
+          <%= label_tag ticket.train.number%>
+        </div>
+
+        <div class="col-md-4">
+          Маршрут:
+        </div>
+        <div class="col-md-8">
+          <%= label_tag ticket.train.route.title%>
+        </div>
+
+        <div class="col-md-4">
+          Станция отправления:
+        </div>
+        <div class="col-md-8" >
+          <%= label_tag ticket.start_station.title%>
+        </div>
+
+        <div class="col-md-4">
+          Станция назначения:
+        </div>
+        <div class="col-md-8" >
+          <%= label_tag ticket.end_station.title%>
+        </div>
+
+        <div class="col-md-4">
+          Пассажир:
+        </div>
+        <div class="col-md-8" >
+          <%= label_tag ticket.passenger_name%>
+        </div>
+
+        <div class="col-md-4">
+          Пасспорт:
+        </div>
+        <div class="col-md-8" >
+          <%= label_tag ticket.passport_number%>
+        </div>
+
+      </div>
+
+      <div class="panel-footer">
+
+      </div>
+    </div>
+
+  </div><!-- panel-group -->
+
+</form>
