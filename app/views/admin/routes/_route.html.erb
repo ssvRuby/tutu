@@ -1,8 +1,13 @@
 <table class="table table-striped">
-<tr>
-  <td><%= route.title %></td>
-  <td><%= link_to 'Показать', admin_route_path(route), class: 'btn btn-link' %></td>
-  <td><%= link_to 'Редактировать', edit_admin_route_path(route), class: 'btn btn-link' %></td>
-  <td><%= link_to 'Удалить', admin_route_path(route), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-link' %></td>
-</tr>
+  <tr>
+    <td>
+      <div id="route_title_<%=route.id%>">
+        <%= route.title %>
+      </div>
+      <%= render 'inline_edit_form', route: route, hidden: true %>
+    </td>
+    <td><%= link_to 'Показать', admin_route_path(route), class: 'btn btn-link' %></td>
+    <td><%= link_to 'Редактировать', '', class: 'btn btn-link edit-route-name', data: {route_id: route.id} %></td>
+    <td><%= link_to 'Удалить', admin_route_path(route), method: :delete, data: {confirm: 'Вы уверены?'}, class: 'btn btn-link' %></td>
+  </tr>
 </table>
